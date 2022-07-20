@@ -16,7 +16,7 @@ from tracker import *
 tracker = Trackers()
 
 # Initialize the videocapture object
-# cap = cv2.VideoCapture("data/Road.mp4")
+
 input_size = 255
 
 # Detection confidence threshold
@@ -49,7 +49,6 @@ modelConfiguration = 'C:/Users/bowet/Downloads/vehicle-detection/models/yolov4.c
 modelWeigheights = 'C:/Users/bowet/Downloads/vehicle-detection/models/yolov4.weights'
 
 # configure the network model
-# net = cv2.dnn.readNetFromDarknet(modelConfiguration, modelWeigheights)
 net = cv2.dnn.readNet(modelConfiguration, modelWeigheights)
 # Configure the network backend
 
@@ -286,21 +285,7 @@ def object_main():
     demo_video = 'data/Road.mp4'
     tffile = tempfile.NamedTemporaryFile(suffix='.mp4', delete=False)
 
-    if  video_file_buffer:
-    #     vid = cv2.VideoCapture(demo_video)
-    #     tffile.name = demo_video
-    #     demo_vid = open(tffile.name, 'rb')
-    #     read_demo = demo_vid.read()
-    #     st.text("vidéo d'entré")
-    #     st.video(read_demo)
-    #     realTime(demo_video, vid)
-    # 
-    #     tffile.name ='data/ouput/detected_video.mp4'
-    #     output_vid = open(tffile.name, 'rb')
-    #     read_output = output_vid.read()
-    #     st.text("vidéo de sotie")
-    #     st.video(read_output)
-    # else:
+    if video_file_buffer:
 
         tffile.write(video_file_buffer.read())
         demo_vid = open(tffile.name, 'rb')
@@ -315,6 +300,20 @@ def object_main():
         read_output = output_vid.read()
         st.text("vidéo de sotie")
         st.video(read_output)
+    # else:
+    #     vid = cv2.VideoCapture(demo_video)
+    #     tffile.name = demo_video
+    #     demo_vid = open(tffile.name, 'rb')
+    #     read_demo = demo_vid.read()
+    #     st.text("vidéo d'entré")
+    #     st.video(read_demo)
+    #     realTime(demo_video, vid)
+    #
+    #     tffile.name ='data/ouput/detected_video.mp4'
+    #     output_vid = open(tffile.name, 'rb')
+    #     read_output = output_vid.read()
+    #     st.text("vidéo de sotie")
+    #     st.video(read_output)
 
 
 
